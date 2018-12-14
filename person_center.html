@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common/reset.css">
+  <link rel="stylesheet" href="./css/common/common.css">
+  <link rel="stylesheet" href="./css/common/index.css">
+  <link rel="stylesheet" href="./css/person_center/index.css">
+</head>
+
+<body>
+  <div class="person-center">
+    <router-link to="/updateInfo">
+      <div class="header">
+        <div class="header-logo">
+          <img src="./assets/default_head.png" v-if="!user.headImgUrl">
+          <!-- <img :src="user.headImgUrl" v-if="user.headImgUrl"> -->
+        </div>
+
+        <div class="user-info">
+          <p class="username">游客</p>
+          <!-- <p class="intro" v-if="user.phone">{{user.phone}}</p> -->
+          <p class="intro" v-if="!user.phone">未绑定</p>
+        </div>
+        <div class="arrow">
+          <img src="./assets/arrow.png">
+        </div>
+      </div>
+    </router-link>
+
+    <div class="order-count">
+      <router-link to="/myOrder">
+        <div class="row bottom-line">
+          <div class="float-left">
+            <img src="./assets/my_order.png" class="my-order-icon icon">
+            <span>我的订单</span>
+          </div>
+          <div class="float-right right-value">
+            <!-- <span class="col999" v-if="user.orderNum">{{user.orderNum}}条</span> -->
+            <span class="col999" v-if="!user.orderNum">暂无</span>
+            <img src="./assets/arrow.png" class="arrow">
+          </div>
+        </div>
+      </router-link>
+
+      <router-link to="/serviceRecord">
+        <div class="row">
+          <div class="float-left">
+            <img src="./assets/clock.png" class="clock icon">
+            <span>服务记录</span>
+          </div>
+          <div class="float-right right-value">
+            <span class="col999">暂无</span>
+            <img src="./assets/arrow.png" class="arrow">
+          </div>
+        </div>
+      </router-link>
+    </div>
+
+    <router-link to="/myCollection">
+      <div class="my-file">
+        <div class="row">
+          <div class="float-left">
+            <img src="./assets/star.png" class="star icon">
+            <span>我的收藏</span>
+          </div>
+          <div class="float-right right-value">
+            <!-- <span class="col999" v-if="user.shopNum">{{user.shopNum}}条</span> -->
+            <span class="col999" v-if="!user.shopNum">暂无</span>
+            <img src="./assets/arrow.png" class="arrow">
+          </div>
+        </div>
+      </div>
+    </router-link>
+    <transition name="router-slid" mode="out-in">
+      <router-view></router-view>
+    </transition>
+    <!-- <div class="text">
+      <p style="margin-bottom:.2rem"><span style="color: #336CAE" @click="gotoAgreement">《百味云平台用户服务协议》</span>和<span
+          style="color: #336CAE" @click="gotoLawAgreement">《法律声明及隐私权政策》</span></p>百味云科技股份有限公司 <br />Copyright ©
+      2016-2017 藏ICP备 17000240号-1
+    </div> -->
+  </div>
+</body>
+
+<script src="./js/index.js"></script>
+<script>
+  /**
+  * YDUI 可伸缩布局方案
+  * rem计算方式：设计图尺寸px / 100 = 实际rem 【例: 100px = 1rem，32px = .32rem】
+  */
+  !function (window) {
+    /* 设计图文档宽度 */
+    var docWidth = 750;
+
+    var doc = window.document,
+      docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+    var recalc = (function refreshRem() {
+      var clientWidth = docEl.getBoundingClientRect().width;
+
+      /* 8.55：小于320px不再缩小，11.2：大于420px不再放大 */
+      docEl.style.fontSize = Math.max(Math.min(20 * (clientWidth / docWidth), 11.2), 8.55) * 5 + 'px';
+
+      return refreshRem;
+    })();
+
+    /* 添加倍屏标识，安卓为1 */
+    docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+
+    if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
+      /* 添加IOS标识 */
+      doc.documentElement.classList.add('ios');
+      /* IOS8以上给html添加hairline样式，以便特殊处理 */
+      if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
+        doc.documentElement.classList.add('hairline');
+    }
+
+    if (!doc.addEventListener) return;
+    window.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  }(window);
+</script>
+
+</html>

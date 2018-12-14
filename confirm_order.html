@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common/reset.css">
+  <link rel="stylesheet" href="./css/common/common.css">
+  <link rel="stylesheet" href="./css/common/index.css">
+  <link rel="stylesheet" href="./css/confirm_order/index.css">
+  <link rel="stylesheet" href="./css/confirm_order/dish_item.css">
+</head>
+
+<body>
+  <div class=" order-confirm">
+  <div class="orderConfirm-wrapper">
+    <!-- 取餐提醒 -->
+    <!-- <remind-tip></remind-tip> -->
+
+    <!-- 餐厅名字,桌号返回加菜按钮 -->
+    <div class="return bottom-line">
+      <div class="store-logo">
+        <img src="./assets/store-small-logo.png" v-if="!shopInfo.fsLogo">
+        <!-- <img :src="shopInfo.fsLogo" v-if="shopInfo.fsLogo"> -->
+      </div>
+      <span class="store-name overflow">fsShopName</span>
+      <span class="float-left" v-if="tableName">桌号tableName</span>
+      <button type="button" class="return-btn" @click="returnAdd()">返回加菜</button>
+    </div>
+
+    <!-- 引入组件 -->
+    <div class="menu">
+      <div style="padding:0 .3rem">
+        <!-- dish item -->
+        <div class="order-list-content">
+          <div class="order-item" v-for="item in orderMenuitemOutVoList">
+            <div class="clearfix">
+              <div class="price">
+                <div>
+                  <p>¥6</p>
+                  <p class="original-price" v-if="item.discountPrice!=item.price">¥2</p>
+                </div>
+              </div>
+              <div class="name overflow">
+                <img v-if="item.isDiscount==2" src="./assets/zhe.png">
+                fsitemname
+                <p class="remark overflow">
+                  <span v-if="item.isMultiUnit||(!item.isMultiUnit&&item.orderMenuItemRequirementOutVoList)">fsorderunitname</span>
+                  <span>
+                    <span v-for='item2 in item.orderMenuItemRequirementOutVoList'> / fsaskname</span>
+                  </span>
+                </p>
+              </div>
+              <div class="quantity">×2</div>
+            </div>
+            <div class="song" v-if='item.isGive == 1 ||!item.isGive' v-for='item2 in item.orderGiveMenuitemOutVoList'>
+              <div class="name overflow">
+                <img src="./assets/zeng.png">fsitemname
+              </div>
+              <div class="quantity">×3</div>
+              <div class="original-price">¥2.22</div>
+            </div>
+          </div>
+        </div>
+        <!-- dish item end -->
+        <!-- <alreadyDishItem :orderMenuitemOutVoList="displayDishList" v-if="displayDishList.length>0"></alreadyDishItem> -->
+      </div>
+      <div style="padding:0 .3rem">
+        <!-- <alreadyDishActivity :orderActivityOutVoList="displayActList" v-if="displayActList.length>0"></alreadyDishActivity> -->
+      </div>
+      <div class="order-price-box">
+        <span class="favorable" v-if="list.paidDiscountMoney!=0">已优惠：¥12</span>
+        小计 <span class="sumprice">¥3</span>
+      </div>
+      <!-- <alreadyDishPrice :list="priceObject"></alreadyDishPrice> -->
+    </div>
+
+    <!-- 是否打包 -->
+    <div class="package">
+      <div class="float-left">打包</div>
+      <div class="float-right package-switch">
+        <span v-show="needPackage">¥1</span>
+        <!-- <img src="./assets/false.png" v-show="!needPackage" @click="changePackage"> -->
+        <img src="./assets/success_icon.png" v-show="needPackage" @click="changePackage">
+      </div>
+    </div>
+
+    <!-- 是否预点 -->
+    <!-- <div class="prepare-order" v-if="shopInfo.orderType == 2">
+      <preOrder :openPrepare.sync="openPrepare" :selectTimeList="selectTimeList" :arriveTime.sync="arriveTime"
+        :telephone.sync="telephone"></preOrder>
+    </div> -->
+
+    <!-- 备注 -->
+    <!-- <div class="remark">
+        <remark :demandList="demandList" :selectDemandList.sync="selectDemandList" v-model.trim="remarkInput"></remark>
+      </div> -->
+
+    <!-- 开具发票-->
+    <!-- <div class="invoice" v-if="showInvoice">
+      <invoice :openInvoice.sync="openInvoice" :isCom.sync="isCom" :isPerson.sync="isPerson" :invoiceHeader.sync="invoiceHeader"
+        :code.sync="code"></invoice>
+    </div> -->
+  </div>
+
+  <!-- 支付区域 -->
+  <div class="pay-block">
+    <span>合计 &nbsp;</span>
+    <span class="pay-money">¥6</span>
+    <button type="button" class="pay-btn" :class="{'forbidClick':isDisableClick==true}" @click="gotoPay()" :disabled="isDisableClick">确认付款</button>
+  </div>
+  <transition name="router-slid" mode="out-in">
+    <router-view></router-view>
+  </transition>
+  </div>
+  </body>
+
+  <script src="./js/index.js"></script>
+  <script>
+    /**
+    * YDUI 可伸缩布局方案
+    * rem计算方式：设计图尺寸px / 100 = 实际rem 【例: 100px = 1rem，32px = .32rem】
+    */
+    !function (window) {
+      /* 设计图文档宽度 */
+      var docWidth = 750;
+
+      var doc = window.document,
+        docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+      var recalc = (function refreshRem() {
+        var clientWidth = docEl.getBoundingClientRect().width;
+
+        /* 8.55：小于320px不再缩小，11.2：大于420px不再放大 */
+        docEl.style.fontSize = Math.max(Math.min(20 * (clientWidth / docWidth), 11.2), 8.55) * 5 + 'px';
+
+        return refreshRem;
+      })();
+
+      /* 添加倍屏标识，安卓为1 */
+      docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+
+      if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
+        /* 添加IOS标识 */
+        doc.documentElement.classList.add('ios');
+        /* IOS8以上给html添加hairline样式，以便特殊处理 */
+        if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
+          doc.documentElement.classList.add('hairline');
+      }
+
+      if (!doc.addEventListener) return;
+      window.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    }(window);
+  </script>
+
+</html>

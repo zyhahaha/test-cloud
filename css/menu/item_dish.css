@@ -1,0 +1,214 @@
+.gray {
+  color: #ccc !important;
+  border: 1px solid #ccc !important;
+}
+.layout {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.item-dish {
+  position: relative;
+}
+/* .pos(@pos:absolute,@top:inherit,@right:inherit,@bottom:inherit,@left:inherit) {
+  position: @pos;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+} */
+.number-control {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  /* .pos(@right:10px, @bottom:10px); */
+  width: 80px;
+}
+.number-control .btn-dish-box .btn-add-box {
+  background: url(../../../../assets/mini-plus-minus.png) no-repeat center;
+  background-size: 100%;
+  border: none;
+}
+.number-control .btn-dish-box .btn-add-box .btn-minus,
+.number-control .btn-dish-box .btn-add-box .btn-plus {
+  font-size: 0;
+  opacity: 0;
+}
+.number-control .num {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  /* .pos(@top:-3px, @right:-5px); */
+  padding: 1px 5px;
+  border-radius: 18px;
+  background-color: #06c1ae;
+  color: #fff;
+  font-size: 13px;
+}
+.item-dish h2 {
+  position: relative;
+  padding-left: 10px;
+  font-size: 13px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #fafafa;
+  color: #696969;
+  font-weight: normal;
+}
+.item-dish h2:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* .pos(@right:0, @bottom:0, @left:0); */
+  border-bottom: 1px solid #e8e8e8;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+/* img-box */
+.img-box {
+  position: relative;
+  margin-right: 0.2rem;
+  width: 1.08rem;
+  height: 1.08rem;
+  background-color: #e5e5e5;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2px;
+  font-size: 0;
+  overflow: hidden;
+}
+.img-box img {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+.img-box .tipImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.img-box .tipImg > img {
+  width: 0.42rem;
+  height: auto;
+}
+.img-box .tipImg :nth-of-type(1) {
+  margin-right: 0.1rem;
+}
+.img-box .fiiscout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 0.2rem;
+  color: #ffffff;
+  text-align: center;
+  width: 1.08rem;
+}
+/* food-info */
+.food-info {
+  width: 75%;
+}
+.food-info .foodName {
+  width: 100%;
+}
+.food-info .saled {
+  margin-top: 0.1rem;
+  font-size: 0.24rem;
+  color: #999999;
+}
+.food-info .price {
+  font-weight: bolder;
+  margin-top: 0.1rem;
+  font-size: 0.26rem;
+  color: #f1903f;
+}
+.food-info .price .now-price {
+  font-size: 0.22rem;
+  color: #dbdbdb;
+}
+.food-info .price .start-money {
+  font-size: 0.24rem;
+}
+.food-info .activity {
+  margin-top: 0.07rem;
+}
+.food-info .activity > img {
+  width: 15px;
+  display: block;
+}
+.food-info .activity > span {
+  padding: 0 1px;
+  padding-top: 2px;
+  line-height: 10px;
+  border: 1px solid #f1503f;
+  color: #f1503f;
+  font-size: 10px;
+}
+/* box */
+.btn-box {
+  position: absolute;
+  bottom: 0.02rem;
+  right: 0;
+}
+
+/* single-style-btn */
+.single-style-btn .add-btn {
+  display: inline-block;
+  width: 1.6rem;
+  height:.486rem;
+  font-size: .24rem;
+  color: #F1503F;
+  line-height: .486rem;
+  border: 1px solid #D8D8D8;
+  text-align: center;
+  border-radius: 4px;
+}
+.single-style-btn .gray {
+  color: #ccc !important;
+  border: 1px solid #ccc !important
+}
+.single-style-btn .noattr-btn-box {
+  width: 1.6rem;
+  height:.486rem;
+  position: absolute;
+  right: 0;
+  top: -24px;
+  background: url(../assets/smallAdd.png) no-repeat center;
+  background-size: 100%;
+  border: none;
+  line-height:.486rem;
+  text-align: center;  
+}
+.single-style-btn .noattr-btn-box >span {
+  width: 48%;
+  border: 1px solid transparent;
+  text-align: center;
+  height: 100%;
+  background: transparent;
+  font-size: .24rem;
+  color: #000000;
+}
+.single-style-btn .noattr-btn-box .minus,
+.single-style-btn .noattr-btn-box .plus {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: .48rem;
+  color: #F1503F;
+  font-size: 0;
+  opacity: 0;
+}
+.single-style-btn .noattr-btn-box .plus {
+  left: inherit;
+  right: 0;
+}

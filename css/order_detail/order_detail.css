@@ -1,0 +1,83 @@
+.right-icon {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.35rem;
+  transition: all 0.5s;
+  transform: rotate(90deg);
+}
+.right-icon img {
+  width: 0.16rem;
+  display: block;
+}
+.order-detail .retreat-msg {
+  padding: 0.15rem 0.3rem;
+  color: #bea064;
+  background: #fff7d6;
+  box-shadow: inset 0 -1px 0 0 #dcdcdc;
+  font-size: 0.24rem;
+}
+.order-detail .retreat-msg span {
+  color: #f1503f;
+}
+.order-detail .adver {
+  padding-bottom: 2rem;
+}
+.order-detail .col999 {
+  color: #999;
+}
+.order-detail .title-box {
+  position: relative;
+  margin-top: 0.2rem;
+  font-size: 0.32rem;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+  background: #fff;
+}
+.order-detail .title-box .no-rotate {
+  transform: rotate(0);
+  right: 0.3rem;
+}
+.order-detail .title-box .rotate {
+  transform: rotate(-90deg);
+  right: 0.32rem;
+}
+.order-detail .title-box .store-img {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  overflow: hidden;
+  border-radius: 50%;
+  vertical-align: top;
+}
+.order-detail .title-box .store-img img {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  max-width: 100%;
+}
+.order-detail .title-box .pre-order {
+  color: #f1503f;
+}
+.order-detail .store-name {
+  border-bottom: none;
+}
+.order-detail .order-list {
+  background-color: #fff;
+}
+.order-detail .order-list .order-list-content {
+  padding: 0 0.3rem;
+  border-top: 0.01rem solid #e5e5e5;
+}
+.order-detail .order-list .plr {
+  padding: 0 0.3rem;
+}
+.order-detail .order-text {
+  margin-bottom: 0.2rem;
+}
+.order-detail .unpack {
+  padding: 0.22rem 0;
+  border-top: 0.01rem dashed #e5e5e5;
+}

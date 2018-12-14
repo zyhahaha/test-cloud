@@ -1,0 +1,47 @@
+.order-list-content .order-item {
+  font-size: .28rem;
+  padding: .22rem 0;
+  overflow: hidden;
+  border-top: 1px dashed #e5e5e5;
+  line-height: .44rem;
+}
+.order-list-content .order-item:first-child {
+  border-top: none;
+}
+.order-list-content .order-item .name {
+  float: left;
+  width: 60%;
+}
+.order-list-content .order-item .quantity {
+  float: left;
+  width: 15%;
+  color: #999;
+  text-align: center;
+}
+.order-list-content .order-item .price {
+  float: right;
+  width: 25%;
+  text-align: right;
+}
+.order-list-content .order-item .song {
+  margin-top: .12rem;
+  color: #999;
+}
+.order-list-content .order-item .song .original-price {
+  text-align: right;
+}
+.order-list-content .order-item .remark {
+  color: #999;
+}
+.order-list-content .order-item .original-price {
+  color: #999;
+  text-decoration: line-through;
+  padding-top: 1px;
+}
+.order-list-content .order-item img {
+  display: inline-block;
+  width: .32rem;
+  vertical-align: middle;
+  margin-right: .1rem;
+  margin-top: -0.05rem;
+}
