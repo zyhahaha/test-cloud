@@ -62,12 +62,8 @@
           </div>
         </div>
         <!-- menuActivity end -->
-        <!-- <menu-activity :shopActivityOutVoList='shopInfo.shopActivityOutVoList' v-if='shopInfo.shopActivityOutVoList && shopInfo.shopActivityOutVoList.length > 0'></menu-activity> -->
       </div>
       <!-- menuHeader end -->
-      <!-- <div v-if='swiperList.length && swiperList.length>0' class="menus-swiper">
-        <swiper :type='2' :swiperList='swiperList'></swiper>
-      </div> -->
     </div>
     <!-- food-attribute -->
     <div style="display: none;" class="attr-out-box" v-show='IS_SHOW_FA'>
@@ -103,7 +99,7 @@
           </div>
         </div>
       </div>
-      <div class="backdrop" v-show="IS_SHOW_FA" @click.stop='closeFoodAttribute'></div>
+      <!-- <div class="backdrop" v-show="IS_SHOW_FA" @click.stop='closeFoodAttribute'></div> -->
     </div>
     <!-- food-attribute end -->
     <!-- <food-attribute></food-attribute> -->
@@ -117,8 +113,6 @@
           <li v-for="(menu,index) in MENUS_LIST" @click="selectMenu(index)" class="menu-list-hook" :class="{'current':currentIndex==index,'menu-list-hook':true}"
             :key='index'>
             <img v-if="menu.fsmenuclsname =='热销'||menu.fsmenuclsname =='热卖'" src="./assets/hot.png" alt="">
-            <!-- <img v-else-if="menu.fsmenuclsname =='吃过'" src="./assets/eat.png" alt=""> -->
-            <!-- <img v-if="menu.fsmenuclsname =='优惠'" src="./assets/nice.png" alt=""> -->
             {{menu.fsmenuclsname}}
             <span class="num" v-show="count(index)>0">{{count(index)}}</span>
           </li>
@@ -127,15 +121,6 @@
       <div class="menu-lists" ref="foodsWrapper" @touchstart="replaceCuIndex=false" @click='showFoodAttribute'>
         <ul class="content">
           <li v-for="(menu,menuIndex) in MENUS_LIST" class="menu-list-hook" :key='menuIndex'>
-            <!-- <div v-if='menu.fsmenuclsname =="吃过" '>
-              <div ref="eatWrapper" style="overflow:hidden;background:#fff;">
-                <ul class='eat-item' :style="{'width':eatWrapperWidth}">
-                  <li v-for="(itemDish,itemIndex) in menu.menuItemList" :key='itemIndex'>
-                    <current-eat :itemDish="itemDish"></current-eat>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
             <div v-else>
               <h2>{{menu.fsmenuclsname}}({{menu.menuItemList.length}})</h2>
               <ul class="list-item">
@@ -169,21 +154,11 @@
                         <div class="single-style-btn">
                           <span class="add-btn" :class='{"gray":isFiiscout || NO_OPEN}' data-flag='singleBtn'
                             :data-menuIndexList='menuIndexList' v-show='count == 0'>添加</span>
-                          <!-- <div v-show='count>0' class="noattr-btn-box">
-                            <span class="minus" data-flag='singleRdBtn' :data-menuIndexList='menuIndexList'>-</span>
-                            <span>{{count}}</span>
-                            <span class="plus" data-flag='singleBtn' :data-menuIndexList='menuIndexList'>+</span>
-                          </div> -->
                         </div>
-                        <!-- <single-style-btn v-if='itemDish.isShowUnit == 1' :menuIndexList='itemDish.menuIndexList'
-                          :fiiscout='itemDish.fiiscout' :count='menuCount' :fsitemid='itemDish.fsitemid'></single-style-btn> -->
-                        <!-- <multi-style-btn v-else :menuIndexList='itemDish.menuIndexList' :fiiscout='itemDish.fiiscout'
-                          :count='menuCount'></multi-style-btn> -->
                       </div>
                     </div>
                   </div>
                   <!-- itemDish end -->
-                  <!-- <itemDish :itemDish="itemDish" :outIndex='menuIndex' :innerIndex="itemIndex"></itemDish> -->
                 </li>
               </ul>
             </div>
@@ -219,60 +194,19 @@
       </div>
       <div class="cart-list">
         <activity-tip></activity-tip>
-        <!-- <list-show :totalCount='totalCount' :showList='showList' :tableName="tableName" :isRest='isRest'></list-show> -->
         <list-show :totalCount='totalCount' :showList='showList' :tableName="tableName" :isRest='isRest'></list-show>
       </div>
-      <div class="backdrop" v-show="showList" @click="isShowlist"></div>
+      <!-- <div class="backdrop" v-show="showList" @click="isShowlist"></div> -->
     </div>
-    <!-- cart end -->
-    <!-- <cart v-show='CARD_SHOW' :shopId='shopInfo.fsShopGUID' :isRest='isRest' :tableName="tableName"></cart> -->
-
-    <!-- <transition name="router-slid" mode="out-in">
-      <router-view></router-view>
-    </transition> -->
-
-    <!-- <balls ref="balls"></balls> -->
-    <!-- <Loading v-show='loading'></Loading> -->
   </div>
 </body>
+<script src="./js/common/ydui.js"></script>
 <script src="./js/index.js"></script>
 <script>
-  /**
-  * YDUI 可伸缩布局方案
-  * rem计算方式：设计图尺寸px / 100 = 实际rem 【例: 100px = 1rem，32px = .32rem】
-  */
-  !function (window) {
-    /* 设计图文档宽度 */
-    var docWidth = 750;
-
-    var doc = window.document,
-      docEl = doc.documentElement,
-      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
-
-    var recalc = (function refreshRem() {
-      var clientWidth = docEl.getBoundingClientRect().width;
-
-      /* 8.55：小于320px不再缩小，11.2：大于420px不再放大 */
-      docEl.style.fontSize = Math.max(Math.min(20 * (clientWidth / docWidth), 11.2), 8.55) * 5 + 'px';
-
-      return refreshRem;
-    })();
-
-    /* 添加倍屏标识，安卓为1 */
-    docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
-
-    if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
-      /* 添加IOS标识 */
-      doc.documentElement.classList.add('ios');
-      /* IOS8以上给html添加hairline样式，以便特殊处理 */
-      if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
-        doc.documentElement.classList.add('hairline');
-    }
-
-    if (!doc.addEventListener) return;
-    window.addEventListener(resizeEvt, recalc, false);
-    doc.addEventListener('DOMContentLoaded', recalc, false);
-  }(window);
+  var personCenter = document.getElementsByClassName('personCenter')[0];
+  personCenter.addEventListener('click', function(){
+    window.location.href = './person_center.html';
+  })
 </script>
 
 </html>
