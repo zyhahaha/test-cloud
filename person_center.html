@@ -17,7 +17,7 @@
     <router-link to="/updateInfo">
       <div class="header">
         <div class="header-logo">
-          <img src="./assets/default_head.png" v-if="!user.headImgUrl">
+          <img src="./assets/person_center/default_head.png" v-if="!user.headImgUrl">
           <!-- <img :src="user.headImgUrl" v-if="user.headImgUrl"> -->
         </div>
 
@@ -27,7 +27,7 @@
           <p class="intro" v-if="!user.phone">未绑定</p>
         </div>
         <div class="arrow">
-          <img src="./assets/arrow.png">
+          <img src="./assets/person_center/arrow.png">
         </div>
       </div>
     </router-link>
@@ -36,13 +36,13 @@
       <router-link to="/myOrder">
         <div class="row bottom-line">
           <div class="float-left">
-            <img src="./assets/my_order.png" class="my-order-icon icon">
+            <img src="./assets/person_center/my_order.png" class="my-order-icon icon">
             <span>我的订单</span>
           </div>
           <div class="float-right right-value">
             <!-- <span class="col999" v-if="user.orderNum">{{user.orderNum}}条</span> -->
             <span class="col999" v-if="!user.orderNum">暂无</span>
-            <img src="./assets/arrow.png" class="arrow">
+            <img src="./assets/person_center/arrow.png" class="arrow">
           </div>
         </div>
       </router-link>
@@ -50,12 +50,12 @@
       <router-link to="/serviceRecord">
         <div class="row">
           <div class="float-left">
-            <img src="./assets/clock.png" class="clock icon">
+            <img src="./assets/person_center/clock.png" class="clock icon">
             <span>服务记录</span>
           </div>
           <div class="float-right right-value">
             <span class="col999">暂无</span>
-            <img src="./assets/arrow.png" class="arrow">
+            <img src="./assets/person_center/arrow.png" class="arrow">
           </div>
         </div>
       </router-link>
@@ -65,13 +65,13 @@
       <div class="my-file">
         <div class="row">
           <div class="float-left">
-            <img src="./assets/star.png" class="star icon">
+            <img src="./assets/person_center/star.png" class="star icon">
             <span>我的收藏</span>
           </div>
           <div class="float-right right-value">
             <!-- <span class="col999" v-if="user.shopNum">{{user.shopNum}}条</span> -->
             <span class="col999" v-if="!user.shopNum">暂无</span>
-            <img src="./assets/arrow.png" class="arrow">
+            <img src="./assets/person_center/arrow.png" class="arrow">
           </div>
         </div>
       </div>

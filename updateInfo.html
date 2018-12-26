@@ -18,9 +18,9 @@
       <div class="header bottom-line">
         <p class="float-left">头像</p>
         <div class="float-right">
-          <img src="./assets/default_head.png" class="header-logo" v-if="!imgUrl">
+          <img src="./assets/update_info/default_head.png" class="header-logo" v-if="!imgUrl">
           <!-- <img :src="imgUrl" class="header-logo" v-if="imgUrl"> -->
-          <img src="./assets/arrow.png" class="arrow">
+          <img src="./assets/update_info/arrow.png" class="arrow">
         </div>
         <!-- <vue-core-image-upload class="upload-block" text="" :crop="false" @imageuploaded="imageuploaded" inputAccept="image/*"
           :url="url" :data="auth" inputOfFile="headImg">
@@ -33,7 +33,7 @@
           <p class="float-left">昵称</p>
           <div class="float-right">
             <span class="col999">游客</span>
-            <img src="./assets/arrow.png" class="arrow">
+            <img src="./assets/update_info/arrow.png" class="arrow">
           </div>
         </div>
       </router-link>
@@ -44,7 +44,7 @@
             <span class="col999" v-if="user.sex == 0">未知</span>
             <!-- <span class="col999" v-if="user.sex == 1">男</span>
             <span class="col999" v-if="user.sex == 2">女</span> -->
-            <img src="./assets/arrow.png" class="arrow">
+            <img src="./assets/update_info/arrow.png" class="arrow">
           </div>
         </div>
       </router-link>
@@ -56,7 +56,7 @@
           <div class="float-right" style="letter-spacing:1px">
             <!-- <span class="col999" v-if="user.phone">{{user.phone}}</span> -->
             <span class="col999" v-if="!user.phone">未绑定</span>
-            <img src="./assets/arrow.png" class="arrow">
+            <img src="./assets/update_info/arrow.png" class="arrow">
           </div>
         </div>
       </div>
