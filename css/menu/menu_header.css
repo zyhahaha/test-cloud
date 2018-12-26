@@ -2,7 +2,7 @@
 /* header menus */
 .menuHeader {
   padding: 0.34rem 0 0.2rem 0.29rem;
-  color: #fff;
+  /* color: #fff; */
   background: url("../assets/headerbg.png") no-repeat center;
   background-size: 100% 100%;
   box-sizing: initial;
@@ -90,6 +90,7 @@
 }
 .menuHeader .personCenter span {
   font-size: 0.24rem;
+  color: #fff;
 }
 .menuHeader .notice {
   display: block;
