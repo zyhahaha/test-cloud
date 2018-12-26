@@ -14,7 +14,7 @@
 
 <body>
   <div class="person-center">
-    <div class="header">
+    <div onclick="goUpdateInfo()" class="header">
       <div class="header-logo">
         <img src="./assets/person_center/default_head.png">
       </div>
@@ -76,5 +76,10 @@
 </body>
 <script src="./js/common/ydui.js"></script>
 <!-- <script src="./js/index.js"></script> -->
+<script>
+  function goUpdateInfo() {
+    location.href = './update_info.html';
+  }
+</script>
 
 </html>

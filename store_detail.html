@@ -14,14 +14,14 @@
 
 <body>
   <div class="store-detail anotherpage">
-    <div class="store-banner" :style="[styleObj]">
+    <div class="store-banner">
       <!-- <img src="./assets/store_detail/default_store_banner.png" class="store-banner-img" v-if="!store.fsPromote"> -->
       <!-- <img :src="store.fsPromote" class="store-banner-img" v-if="store.fsPromote"> -->
       <div class="mask"></div>
-      <img src="./assets/store_detail/return_back.png" class="returnback favor">
+      <img onclick="goPersonCenter()" src="./assets/store_detail/return_back.png" class="returnback favor">
       <img src="./assets/store_detail/share.png" class="share favor">
-      <img src="./assets/store_detail/collect.png" class="collect favor">
-      <img src="./assets/store_detail/collected.png" class="collect favor">
+      <img onclick="isShowCollect(0)" src="./assets/store_detail/collect.png" class="collect favor">
+      <img style="visibility: hidden;" onclick="isShowCollect(1)" src="./assets/store_detail/collected.png" class="collect favor">
     </div>
     <div class="store-ban">
       <div class="store-logo">
@@ -95,8 +95,7 @@
     </div>
   </div>
 </body>
-
 <script src="./js/common/ydui.js"></script>
-<!-- <script src="./js/index.js"></script> -->
+<script src="./js/store_detail.js"></script>
 
 </html>
