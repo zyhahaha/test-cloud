@@ -18,44 +18,38 @@
       <div class="header bottom-line">
         <p class="float-left">头像</p>
         <div class="float-right">
-          <img src="./assets/update_info/default_head.png" class="header-logo" v-if="!imgUrl">
+          <img src="./assets/update_info/default_head.png" class="header-logo">
           <!-- <img :src="imgUrl" class="header-logo" v-if="imgUrl"> -->
           <img src="./assets/update_info/arrow.png" class="arrow">
         </div>
       </div>
     </div>
     <div class="nickname-sex">
-      <router-link to="/updateNickname">
-        <div class="row bottom-line">
-          <p class="float-left">昵称</p>
-          <div class="float-right">
-            <span class="col999">游客</span>
-            <img src="./assets/update_info/arrow.png" class="arrow">
-          </div>
-        </div>
-      </router-link>
-      <router-link to="/updateSex">
-        <div class="row">
-          <p class="float-left">性别</p>
-          <div class="float-right">
-            <span class="col999" v-if="user.sex == 0">未知</span>
-            <img src="./assets/update_info/arrow.png" class="arrow">
-          </div>
-        </div>
-      </router-link>
-    </div>
-    <router-link to="/bindPhone">
-      <div class="phone">
-        <div class="row">
-          <p class="float-left">手机号</p>
-          <div class="float-right" style="letter-spacing:1px">
-            <!-- <span class="col999" v-if="user.phone">{{user.phone}}</span> -->
-            <span class="col999" v-if="!user.phone">未绑定</span>
-            <img src="./assets/update_info/arrow.png" class="arrow">
-          </div>
+      <div class="row bottom-line">
+        <p class="float-left">昵称</p>
+        <div class="float-right">
+          <span class="col999">游客</span>
+          <img src="./assets/update_info/arrow.png" class="arrow">
         </div>
       </div>
-    </router-link>
+      <div class="row">
+        <p class="float-left">性别</p>
+        <div class="float-right">
+          <span class="col999">未知</span>
+          <img src="./assets/update_info/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
+    <div class="phone">
+      <div class="row">
+        <p class="float-left">手机号</p>
+        <div class="float-right" style="letter-spacing:1px">
+          <!-- <span class="col999" v-if="user.phone">{{user.phone}}</span> -->
+          <span class="col999">未绑定</span>
+          <img src="./assets/update_info/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
