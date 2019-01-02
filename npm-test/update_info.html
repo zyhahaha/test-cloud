@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common/reset.css">
+  <link rel="stylesheet" href="./css/common/common.css">
+  <link rel="stylesheet" href="./css/common/index.css">
+  <link rel="stylesheet" href="./css/updateInfo/index.css">
+</head>
+
+<body>
+  <div class="update-info anotherpage">
+    <div style="padding-left: 0.2rem; background: #fff;">
+      <div class="header bottom-line">
+        <p class="float-left">头像</p>
+        <div class="float-right">
+          <input style="opacity: 0; height: 100%; position: absolute;" onchange="upload(this.files)" type="file" name=""
+            id="avatar-updata">
+          <img src="./assets/update_info/default_head.png" class="header-logo">
+          <!-- <img :src="imgUrl" class="header-logo" v-if="imgUrl"> -->
+          <img src="./assets/update_info/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
+    <div class="nickname-sex">
+      <div class="row bottom-line">
+        <p class="float-left">昵称</p>
+        <div class="float-right">
+          <span class="col999">游客</span>
+          <img src="./assets/update_info/arrow.png" class="arrow">
+        </div>
+      </div>
+      <div class="row">
+        <p class="float-left">性别</p>
+        <div class="float-right">
+          <span class="col999">未知</span>
+          <img src="./assets/update_info/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
+    <div class="phone">
+      <div class="row">
+        <p class="float-left">手机号</p>
+        <div class="float-right" style="letter-spacing:1px">
+          <span class="col999">18312341234</span>
+          <img src="./assets/update_info/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./js/common/ydui.js"></script>
+<script src="./index.js"></script>
+
+</html>

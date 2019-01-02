@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/common/reset.css">
+  <link rel="stylesheet" href="./css/common/common.css">
+  <link rel="stylesheet" href="./css/common/index.css">
+  <link rel="stylesheet" href="./css/person_center/index.css">
+</head>
+
+<body>
+  <div class="person-center">
+    <div onclick="goUpdateInfo()" class="header">
+      <div class="header-logo">
+        <img src="./assets/person_center/default_head.png">
+      </div>
+
+      <div class="user-info">
+        <p class="username">游客</p>
+        <p class="intro">未绑定</p>
+      </div>
+      <div class="arrow">
+        <img src="./assets/person_center/arrow.png">
+      </div>
+    </div>
+
+    <div class="order-count">
+      <div class="row bottom-line">
+        <div class="float-left">
+          <img src="./assets/person_center/my_order.png" class="my-order-icon icon">
+          <span>我的订单</span>
+        </div>
+        <div class="float-right right-value">
+          <span class="col999">暂无</span>
+          <img src="./assets/person_center/arrow.png" class="arrow">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="float-left">
+          <img src="./assets/person_center/clock.png" class="clock icon">
+          <span>服务记录</span>
+        </div>
+        <div class="float-right right-value">
+          <span class="col999">暂无</span>
+          <img src="./assets/person_center/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
+
+    <div class="my-file">
+      <div class="row">
+        <div class="float-left">
+          <img src="./assets/person_center/star.png" class="star icon">
+          <span>我的收藏</span>
+        </div>
+        <div class="float-right right-value">
+          <span class="col999">暂无</span>
+          <img src="./assets/person_center/arrow.png" class="arrow">
+        </div>
+      </div>
+    </div>
+    <!-- <div class="text">
+      <p style="margin-bottom:.2rem"><span style="color: #336CAE" @click="gotoAgreement">《百味云平台用户服务协议》</span>和<span
+          style="color: #336CAE" @click="gotoLawAgreement">《法律声明及隐私权政策》</span></p>百味云科技股份有限公司 <br />Copyright ©
+      2016-2017 藏ICP备 17000240号-1
+    </div> -->
+  </div>
+</body>
+<script src="./js/common/ydui.js"></script>
+<!-- <script src="./js/index.js"></script> -->
+<script>
+  function goUpdateInfo() {
+    location.href = './update_info.html';
+  }
+</script>
+
+</html>
