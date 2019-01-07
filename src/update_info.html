@@ -8,7 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/common/reset.css">
   <link rel="stylesheet" href="./css/common/common.css">
-  <link rel="stylesheet" href="./css/common/index.css">
+  <!-- <link rel="stylesheet" href="./css/common/index.css"> -->
   <link rel="stylesheet" href="./css/updateInfo/index.css">
 </head>
 
@@ -18,6 +18,8 @@
       <div class="header bottom-line">
         <p class="float-left">头像</p>
         <div class="float-right">
+          <input style="opacity: 0; height: 100%; position: absolute;" onchange="upload(this.files)" type="file" name=""
+          id="avatar-updata">
           <img src="./assets/update_info/default_head.png" class="header-logo">
           <!-- <img :src="imgUrl" class="header-logo" v-if="imgUrl"> -->
           <img src="./assets/update_info/arrow.png" class="arrow">
@@ -53,5 +55,8 @@
 </body>
 
 <script src="./js/common/ydui.js"></script>
+<script src="./js/common/exif.js"></script>
+<script src="./js/common/cut-img-filesize.js"></script>
+<script src="./js/update_info.js"></script>
 
 </html>
