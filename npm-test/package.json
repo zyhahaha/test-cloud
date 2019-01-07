@@ -40,5 +40,8 @@
     "webpack-dev-server": "^2.9.4"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "zyhahaha": "^0.1.1"
+  }
 }

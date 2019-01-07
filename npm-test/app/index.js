@@ -1,9 +1,11 @@
-// import ImgUploadService from './js/common/index';
-let avatarUpdataEl = document.getElementById('avatar-updata');
+import * as ImgUploadService from '_zyhahaha@0.1.0@zyhahaha';
+// console.log(upload);
+// let avatarUpdataEl = document.getElementById('avatar-updata');
 let avatarImgEl = document.getElementsByClassName('header-logo')[0];
 // avatarUpdataEl.addEventListener('change', file => {
 //   console.log(file);
 // })
+window.upload = upload;
 function upload(files) {
   // console.log(files);
   let file = files[0];
@@ -11,10 +13,10 @@ function upload(files) {
     file: file,
     max: 40,
   }
-  console.log(ImgUploadService)
-  // let ImgUploadServiceObj = new ImgUploadService();
-  // ImgUploadServiceObj.draw(option, blob => {
-  //   console.log(blob);
-  //   avatarImgEl.src = window.webkitURL.createObjectURL(blob);
-  // })
+  // console.log(ImgUploadService)
+  let ImgUploadServiceObj = new ImgUploadService();
+  ImgUploadServiceObj.draw(option, blob => {
+    console.log(blob);
+    avatarImgEl.src = window.webkitURL.createObjectURL(blob);
+  })
 }

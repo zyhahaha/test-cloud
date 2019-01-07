@@ -28,8 +28,13 @@ module.exports = {
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192'
-            } // 内联 base64 URLs, 限定 <=8k 的图片, 其他的用 URL
+            }, // 内联 base64 URLs, 限定 <=8k 的图片, 其他的用 URL
 
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                // include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+            },
         ]
     },
     resolve: {
