@@ -7,10 +7,10 @@ function upload(files) {
     file: file,
     max: 40,
   }
+  // console.log(files)
   // console.log(ImgUploadService)
-  let ImgUploadServiceObj = new ImgUploadService();
-  ImgUploadServiceObj.draw(option, blob => {
-    console.log(blob);
+  let CutImgObj = new CutImg();
+  CutImgObj.cut(option).then(blob => {
     avatarImgEl.src = window.webkitURL.createObjectURL(blob);
   })
 }
