@@ -42,3 +42,7 @@ var events = (function() {
     }
   }
 })();
+
+function handler (info) {
+  console.log(info);
+}
