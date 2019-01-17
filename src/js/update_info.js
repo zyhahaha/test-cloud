@@ -10,3 +10,9 @@
 //     avatarImgEl.src = window.webkitURL.createObjectURL(blob);
 //   })
 // }
+events.subscribe('aa', handler);
+events.publish('aa', 6666);
+
+function handler (info) {
+  console.log(info);
+}
